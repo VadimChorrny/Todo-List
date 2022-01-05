@@ -16,6 +16,7 @@ namespace TodoList.Controllers
         {
             return View(db.Tasks.ToList());
         }
+        
         public IActionResult Create()
         {
             return View();
@@ -25,6 +26,13 @@ namespace TodoList.Controllers
         {
             if (!ModelState.IsValid) return View();
             db.Tasks.Add(tasks);
+            db.SaveChanges();
+            return RedirectToAction(nameof(Index));
+        }
+        public IActionResult Complete(int? id)
+        {
+            if (id == null) return NotFound();
+            db.Tasks.First(e => e.Id == id).IsCompleted = true;
             db.SaveChanges();
             return RedirectToAction(nameof(Index));
         }

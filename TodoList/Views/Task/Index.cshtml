@@ -18,11 +18,14 @@
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title">@task.Title</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span class="text-white">Start:</span> @task.Start</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><span class="text-danger">Start:</span> @task.Start</h6>
                         <p class="card-text">@task.Description</p>
-                        <h6 class="card-subtitle mb-2 text-muted"><span class="text-white">Finish:</span> @task.End</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><span class="text-danger">Finish:</span> @task.End</h6>
+                        <h6 class="card-subtitle mb-2">Priority: @task.Priority</h6>
+                        <h6 class="card-subtitle mb-2">Status: @task.IsCompleted</h6>
                         <div class="btn-group">
                             <a asp-controller="Task" asp-action="Edit" asp-route-id="@task.Id" class="btn btn-success"><i class="fas fa-edit"></i>&nbsp;Edit</a>
+                            <a asp-controller="Task" asp-action="Complete" asp-route-id="@task.Id" class="btn btn-primary d-flex align-items-center">Complete</a>
                             <a asp-controller="Task" asp-action="Delete" asp-route-id="@task.Id" class="btn btn-danger"><i class="fas fa-trash"></i>&nbsp;Delete</a>
                         </div>
                     </div>

@@ -12,5 +12,6 @@ namespace TodoList.Models
         public DateTime Start { get; set; } = DateTime.Now;
         public DateTime End { get; set; }
         public bool IsCompleted { get; set; }
+        public string Priority { get; set; } = "Low";
     }
 }

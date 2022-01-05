@@ -23,7 +23,20 @@
             <input asp-for="End" class="form-control col-8">
             <span asp-validation-for="End" class="offset-4 text-danger"></span>
         </div>
-         <div class="form-group row">
+        <div class="form-group row">
+            <label asp-for="Priority" class="col-4">Priority</label>
+            <select asp-for="Priority" class="form-control col-8">
+                <option selected>Low</option>
+                <option selected>Medium</option>
+                <option selected>Height</option>
+            </select>
+            <span asp-validation-for="Priority" class="offset-4 text-danger"></span>
+        </div>
+        <div class="custom-control custom-checkbox mb-5">
+            <input asp-for="IsCompleted" type="checkbox" class="custom-control-input" id="customCheck1">
+            <label asp-for="IsCompleted" class="custom-control-label" for="customCheck1">Is Completed</label>
+        </div>
+        <div class="form-group row">
             <div class="col-6">
                 <input type="submit" class="btn btn-success w-100" value="Update" />
             </div>
@@ -37,5 +50,7 @@
 @* Client Validation *@
 @section Scripts
 {
-    @{ <partial name="_ValidationScriptsPartial.cshtml"/> }
+    @{
+    <partial name="_ValidationScriptsPartial.cshtml" />
+ }
 }
